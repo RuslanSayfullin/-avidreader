@@ -1,10 +1,8 @@
-
 {% extends 'base.html' %}
-
 
 {% block content %}
     <div class="container mx-auto mt-4">
-  <div class="row justify-content-center">
+  <div class="d-flex justify-content-center">
 
 {% for book in books.items %}
 
@@ -27,7 +25,7 @@
        </h2>
       <p>{{ book.description }}</p>
      <div class="btn-wrapper text-center d-flex justify-content-between">
-      <button type="button" class="btn btn-info btn-sm"> 
+      <button type="button" class="btn btn-info btn-sm">
        <a href="#" style="color:white"><i class="fas fa-pen"></i> Изменить</a>
       </button>
        <form action="#" method="POST">
@@ -39,17 +37,15 @@
 {% endfor %}
   </div>
    </div>
-
     {% for page_num in books.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
       {% if page_num %}
         {% if books.page == page_num %}
-          <a class="btn btn-info mb-4" href="{{ url_for('index', page=page_num) }}">{{ page_num }}</a>
+          <a class="btn btn-info mb-4" href="{{ url_for('best', page=page_num) }}">{{ page_num }}</a>
         {% else %}
-          <a class="btn btn-outline-info mb-4" href="{{ url_for('index', page=page_num) }}">{{ page_num }}</a>
+          <a class="btn btn-outline-info mb-4" href="{{ url_for('best', page=page_num) }}">{{ page_num }}</a>
         {% endif %}
       {% else %}
         ...
       {% endif %}
     {% endfor %}
-
-{% endblock %} 
+{% endblock %}
