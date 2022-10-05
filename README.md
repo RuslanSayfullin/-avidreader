@@ -12,3 +12,4 @@ $ cd avidreader
 $ pip install -r requirements.txt
 
 ========================================================================================================================
+Источник: https://proglib.io/p/sozdaem-analog-livelib-ru-na-flask-chast-1-osnovy-raboty-s-sqlalchemy-2022-07-11

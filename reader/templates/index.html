@@ -13,7 +13,7 @@
     <span><h4>{{ book.genre }}</h4></span>
     <div class="overlay">
       <div class="overlay-content">
-        <a href="#">Подробнее</a>
+        <a href="{{ url_for('book', book_id=book.id)}}">Подробнее</a>
       </div>
     </div>
   </div>
