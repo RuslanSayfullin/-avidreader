@@ -12,7 +12,7 @@
     <span><h4>{{ book.genre }}</h4></span>
     <div class="overlay">
       <div class="overlay-content">
-        <a href="{{ url_for('book', book_id=book.id)}}">Подробнее</a>
+        <a href="{{ url_for('book', book_id=book.id) }}">Подробнее</a>
       </div>
     </div>
   </div>
@@ -26,9 +26,9 @@
       <p>{{ book.description }}</p>
      <div class="btn-wrapper text-center d-flex justify-content-between">
       <button type="button" class="btn btn-info btn-sm">
-       <a href="#" style="color:white"><i class="fas fa-pen"></i> Изменить</a>
+       <a href="{{ url_for('edit', book_id=book.id) }}" style="color:white"><i class="fas fa-pen"></i> Изменить</a>
       </button>
-       <form action="#" method="POST">
+       <form action="{{ url_for('delete', book_id=book.id) }}" method="POST">
          <button class='btn btn-danger btn-sm' type="submit" value="Удалить" onclick="return confirm('Удалить книгу?')"><i class="fa fa-times"></i> Удалить</button>
        </form>
      </div>
@@ -37,6 +37,7 @@
 {% endfor %}
   </div>
    </div>
+
     {% for page_num in books.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
       {% if page_num %}
         {% if books.page == page_num %}
